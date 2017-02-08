@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test for Etripr</title>
+</head>
+<body>
+<form action="new-user" method="post">
+    <input type="text" placeholder="Name" name="name" required/>
+    <input type="text" placeholder="Email" name="email" required/>
+    <input type="password" placeholder="Password" name="password" required/>
+    <input type="text" placeholder="Car Type" name="car"/>
+</form>
+{{^user}}
+<form action="/login" method="post">
+    <input type="text" placeholder="Email" name="email" required/>
+    <input type="password" placeholder="Password" name="password" required/>
+    <button type="submit">Login</button>
+</form>
+{{/user}}
+
+{{#user}}
+Welcome, {{name}} {{email}} {{car}}!
+
+<form action="/logout" method="post" id="logout" hidden>
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>
